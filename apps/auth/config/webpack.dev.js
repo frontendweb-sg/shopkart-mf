@@ -1,9 +1,9 @@
 const common = require("./webpack.common");
-const { merge } = require("webpack-merge");
 const Html = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const path = require("path");
 const pkg = require("../package.json")
+const { merge } = require("webpack-merge");
+const {ModuleFederationPlugin} = require("webpack").container;
 
 
 /**@type{import('webpack').Configuration}*/
@@ -14,8 +14,7 @@ const config = {
         publicPath: "http://localhost:3001/"
     },
     optimization: {
-        
-        //  runtimeChunk: "single"
+    //  runtimeChunk: "single"
     },
     devServer: {
         port: 3001,

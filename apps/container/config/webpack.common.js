@@ -1,4 +1,5 @@
 const path = require("path");
+const Html = require("html-webpack-plugin");
 
 const regex = {
     js: /\.(js|jsx|ts|tsx)$/,
@@ -30,5 +31,10 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    "plugins":[
+        new Html({
+            template: path.resolve(__dirname, "..", "public/index.html")
+        })
+    ]
 }

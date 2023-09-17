@@ -1,9 +1,8 @@
 const common = require("./webpack.common");
-const { merge } = require("webpack-merge");
-const Html = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const path = require("path");
 const pkg = require('../package.json')
+const { merge } = require("webpack-merge");
+const {ModuleFederationPlugin} = require("webpack").container;
 
 /**@type{import('webpack').Configuration}*/
 const config = {
@@ -29,7 +28,9 @@ const config = {
             name: "container",
             filename: "remoteEntry.js",
             exposes: {
-                "./AppTheme": path.resolve(__dirname, "..", "src/context/theme")
+                "./AppTheme": path.resolve(__dirname, "..", "src/context/theme"),
+                "./AppHeader": path.resolve(__dirname, "..", "src/layout/Header"),
+                "./AppFooter":path.resolve(__dirname, "..", "src/layout/Footer"),
             },
             remotes: {
                 auth: "auth@http://localhost:3001/remoteEntry.js",
@@ -39,10 +40,8 @@ const config = {
                 admin: "admin@http://localhost:3005/remoteEntry.js"
             },
             shared: pkg.dependencies
-        }),
-        new Html({
-            template: path.resolve(__dirname, "..", "public/index.html")
         })
+       
     ]
 }
 
