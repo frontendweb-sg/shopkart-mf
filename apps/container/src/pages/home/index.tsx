@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <div>
       <h1>Home Page</h1>
-      <button onClick={changeTheme}>them</button>
+      <button onClick={changeTheme}>theme</button>
     </div>
   );
 };
