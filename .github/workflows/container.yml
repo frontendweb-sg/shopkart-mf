@@ -1,1 +1,25 @@
 name: container-deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "apps/container/**"
+
+defaults:
+  run:
+    working-directory: apps/container
+
+jobs:
+  build:
+    runs-on: ubuntu-latest"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: "install deps"
+        run: npm install
+
+      - name: "create build"
+        run: npm run build
