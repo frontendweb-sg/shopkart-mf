@@ -1,0 +1,23 @@
+{
+  "name": "shopkart-mf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"wsrun --parallel start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@frontendweb:frontendweb-sg/shopkart-mf.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "shopkart-mf",
+    "email": "frontendweb.sg@gmail.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "wsrun": "^5.2.4"
+  }
+}
