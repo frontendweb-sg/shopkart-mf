@@ -1,16 +1,21 @@
 const common = require("./webpack.common");
-const { merge } = require("webpack-merge");
-const Html = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const path = require("path");
 const pkg = require("../package.json")
 const { VueLoaderPlugin } = require("vue-loader");
+const { merge } = require("webpack-merge");
+const {ModuleFederationPlugin} = require("webpack").container;
+
+const domain = process.env.PROD_DOMAIN;
 
 /**@type{import('webpack').Configuration}*/
 const config = {
     mode: "production",
+    devtool:"inline-source-map",
+    performance:{
+        hints:false
+    },
     output: {
-        publicPath: "/admin/latest"
+      filename:"[name].[contenthash].js"
     },
     plugins: [
         new ModuleFederationPlugin({
@@ -20,8 +25,8 @@ const config = {
                 "./AdminBootstrap": path.resolve(__dirname, "..", "src/bootstrap")
             },
             remotes: {
-                container: "container@http://localhost:3000/remoteEntry.js",
-                auth: "auth@http://localhost:3001/remoteEntry.js",
+                container: `container@${domain}/remoteEntry.js`,
+                auth: `auth@${domain}/auth/remoteEntry.js`,
             },
             shared: pkg.dependencies
         }),

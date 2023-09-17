@@ -16,10 +16,12 @@ const config={
     plugins:[
         ModuleFederationPlugin({
             name:"categories",
-            exposes:{},
+            exposes:{
+                "./CategoriesBootstrap": path.resolve(__dirname, "..", "src/bootstrap")
+            },
             remotes:{
+                container: `container@${domain}/remoteEntry.js`,
                 auth:`auth@${domain}/auth/remoteEntry.js`,
-                users:`users@${domain}/users/remoteEntry.js`
             },
         })
     ]
