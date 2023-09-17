@@ -13,7 +13,6 @@ const Header = () => {
           <Typography sx={{ flexGrow: 1 }} component={Link} to="/">
             {AppContent.brandName}
           </Typography>
-
           <Box>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/users">Users</NavLink>

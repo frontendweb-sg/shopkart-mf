@@ -30,3 +30,9 @@ declare module "categories/CategoriesBootstrap" {
     options?: MountProps
   ): { onParentNavigation: any };
 }
+declare module "cart/CartBootstrap" {
+  export function mount(
+    el: HTMLElement,
+    options?: MountProps
+  ): { onParentNavigation: any };
+}
