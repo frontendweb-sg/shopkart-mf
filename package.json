@@ -19,5 +19,9 @@
   "devDependencies": {
     "concurrently": "^8.2.1",
     "wsrun": "^5.2.4"
-  }
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }
