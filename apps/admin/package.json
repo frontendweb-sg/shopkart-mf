@@ -3,9 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.3.4",
+    "@vue/tsconfig": "^0.4.0",
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3",
+    "vue-loader": "^17.2.2",
+    "vue-template-compiler": "^2.7.14",
+    "vue-tsc": "^1.8.11"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --config ./config/webpack.dev.js",
+    "build": "webpack --config ./config/webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -13,5 +22,11 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "pinia": "^2.1.6",
+    "vitest": "^0.34.4",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
+  }
 }
